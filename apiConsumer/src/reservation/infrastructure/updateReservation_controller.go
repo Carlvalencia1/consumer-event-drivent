@@ -1,23 +1,23 @@
 package infrastructure
 
 import (
-	"apiConsumer/src/orders/application"
-	"apiConsumer/src/orders/domain"
+	"apiConsumer/src/reservation/application"
+	"apiConsumer/src/reservation/domain"
 	"net/http"
 	"strconv"
 
 	"github.com/gin-gonic/gin"
 )
 
-type UpdateOrderController struct {
-	useCase *application.UpdateOrderUseCase
+type UpdateReservationController struct {
+	useCase *application.UpdateReservationUseCase
 }
 
-func NewUpdateOrderController(useCase *application.UpdateOrderUseCase) *UpdateOrderController {
-	return &UpdateOrderController{useCase: useCase}
+func NewUpdateReservationController(useCase *application.UpdateReservationUseCase) *UpdateReservationController {
+	return &UpdateReservationController{useCase: useCase}
 }
 
-func (controller *UpdateOrderController) Execute(c *gin.Context) {
+func (controller *UpdateReservationController) Execute(c *gin.Context) {
 	idStr := c.Param("id")
 	id, err := strconv.Atoi(idStr)
 	if err != nil {

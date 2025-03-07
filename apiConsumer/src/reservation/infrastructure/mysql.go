@@ -1,7 +1,7 @@
 package infrastructure
 
 import (
-	"apiConsumer/src/orders/domain"
+	"apiConsumer/src/reservation/domain"
 	"database/sql"
 	"fmt"
 

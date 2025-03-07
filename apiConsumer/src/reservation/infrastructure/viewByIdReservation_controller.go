@@ -1,21 +1,21 @@
 package infrastructure
 
 import (
-	"apiConsumer/src/orders/application"
+	"apiConsumer/src/reservation/application"
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"strconv"
 )
 
-type ViewByIdOrderController struct {
-	useCase *application.ViewByIdOrderUseCase
+type ViewByIdReservationController struct {
+	useCase *application.ViewByIdReservationUseCase
 }
 
-func NewViewByIdOrderController(useCase *application.ViewByIdOrderUseCase) *ViewByIdOrderController {
-	return &ViewByIdOrderController{useCase: useCase}
+func NewViewByIdReservationController(useCase *application.ViewByIdReservationUseCase) *ViewByIdReservationController {
+	return &ViewByIdReservationController{useCase: useCase}
 }
 
-func (controller *ViewByIdOrderController) Execute(c *gin.Context) {
+func (controller *ViewByIdReservationController) Execute(c *gin.Context) {
 	idStr := c.Param("id")
 	id, err := strconv.Atoi(idStr)
 	if err != nil {

@@ -8,7 +8,7 @@ import (
     "time"
 
     amqp "github.com/rabbitmq/amqp091-go"
-    "apiConsumer/src/orders/domain"
+    "apiConsumer/src/reservation/domain"
 )
 
 type MyExchangeLogs struct {

@@ -1,22 +1,22 @@
 package infrastructure
 
 import (
-	"apiConsumer/src/orders/application"
-	"apiConsumer/src/orders/domain"
+	"apiConsumer/src/reservation/application"
+	"apiConsumer/src/reservation/domain"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
 )
 
-type CreateOrderController struct {
-	useCase *application.CreateOrderUseCase
+type CreateReservationController struct {
+	useCase *application.CreateReservationUseCase
 }
 
-func NewCreateOrderController(useCase *application.CreateOrderUseCase) *CreateOrderController {
-	return &CreateOrderController{useCase: useCase}
+func NewCreateOrderController(useCase *application.CreateReservationUseCase) *CreateReservationController {
+	return &CreateReservationController{useCase: useCase}
 }
 
-func (controller *CreateOrderController) Execute(c *gin.Context) {
+func (controller *CreateReservationController) Execute(c *gin.Context) {
 	var order domain.Order
 
 	if err := c.ShouldBindJSON(&order); err != nil {
