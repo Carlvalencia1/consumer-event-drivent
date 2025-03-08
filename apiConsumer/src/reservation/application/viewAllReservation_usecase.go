@@ -10,6 +10,6 @@ func NewViewAllReservationUseCase(mysqlRepository domain.IOrderMysq) *ViewAllRes
 	return &ViewAllReservationUseCase{mysqlRepository: mysqlRepository}
 }
 
-func (uc *ViewAllReservationUseCase) Run() ([]domain.Order, error) {
+func (uc *ViewAllReservationUseCase) Run() ([]domain.Reservation, error) {
 	return uc.mysqlRepository.GetAll()
 }

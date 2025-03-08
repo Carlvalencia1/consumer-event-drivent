@@ -10,6 +10,6 @@ func NewUpdateReservationUseCase(mysqlRepository domain.IOrderMysq) *UpdateReser
 	return &UpdateReservationUseCase{mysqlRepository: mysqlRepository}
 }
 
-func (uc *UpdateReservationUseCase) Run(id int32, order domain.Order) error {
+func (uc *UpdateReservationUseCase) Run(id int32, order domain.Reservation) error {
 	return uc.mysqlRepository.Update(id, order)
 }

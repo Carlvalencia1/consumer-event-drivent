@@ -20,7 +20,7 @@ func (usecase *CreateReservationUseCase) SetOrder(mysqlRepository domain.IOrderM
 	usecase.rabbitqmRepository = rabbitqmRepository
 }
 
-func (usecase *CreateReservationUseCase) Run(order *domain.Order) error {
+func (usecase *CreateReservationUseCase) Run(order *domain.Reservation) error {
 	if err := usecase.mysqlRepository.Save(order); err != nil {
 		log.Printf("Error al guardar en MySQL: %v", err)
 		return fmt.Errorf("error al guardar la orden en MySQL: %w", err)

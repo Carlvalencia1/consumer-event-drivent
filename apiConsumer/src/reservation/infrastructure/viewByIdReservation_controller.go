@@ -23,11 +23,11 @@ func (controller *ViewByIdReservationController) Execute(c *gin.Context) {
 		return
 	}
 
-	order, err := controller.useCase.Run(int32(id))
+	reservation, err := controller.useCase.Run(int32(id))
 	if err != nil {
-		c.JSON(http.StatusNotFound, gin.H{"error": "Orden no encontrada"})
+		c.JSON(http.StatusNotFound, gin.H{"error": "Reservation no encontrada"})
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"Order": order})
+	c.JSON(http.StatusOK, gin.H{"Reservation": reservation})
 }

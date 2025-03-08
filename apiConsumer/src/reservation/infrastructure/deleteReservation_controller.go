@@ -20,11 +20,11 @@ func (controller *DeleteReservationController) Execute(c *gin.Context) {
 	idStr := c.Param("id")
 	id, err := strconv.Atoi(idStr)
 	if err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "Id de order no encontrada"})
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Id de reservación no encontrada"})
 		return
 	}
 
 	controller.useCase.Run(int32(id))
 
-	c.JSON(http.StatusOK, gin.H{"estatus": "Orden eliminado correctamente"})
+	c.JSON(http.StatusOK, gin.H{"estatus": "Reservación eliminada correctamente"})
 }

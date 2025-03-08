@@ -10,6 +10,6 @@ func NewViewReservationByIdUseCase(mysqlRepository domain.IOrderMysq) *ViewByIdR
 	return &ViewByIdReservationUseCase{mysqlRepository: mysqlRepository}
 }
 
-func (uc *ViewByIdReservationUseCase) Run(id int32) (*domain.Order, error) {
+func (uc *ViewByIdReservationUseCase) Run(id int32) (*domain.Reservation, error) {
 	return uc.mysqlRepository.GetById(id)
 }

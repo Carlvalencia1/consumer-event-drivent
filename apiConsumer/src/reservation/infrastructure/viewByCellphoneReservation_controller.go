@@ -19,11 +19,11 @@ func (controller *ViewByCellphoneReservationController) Execute(c *gin.Context) 
 	cellphoneStr := c.Param("cellphone")
 	cellphone, err := strconv.Atoi(cellphoneStr)
 
-	orders, err := controller.useCase.Run(int32(cellphone))
+	reservations, err := controller.useCase.Run(int32(cellphone))
 	if err != nil {
-		c.JSON(http.StatusNotFound, gin.H{"error": "Órdenes no encontradas"})
+		c.JSON(http.StatusNotFound, gin.H{"error": "Resrvaciones no encontradas"})
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"orders": orders})
+	c.JSON(http.StatusOK, gin.H{"reservations": reservations})
 }

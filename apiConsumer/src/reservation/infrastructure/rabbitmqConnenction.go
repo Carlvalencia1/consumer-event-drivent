@@ -31,7 +31,7 @@ func NewRabbitRepository(ch *amqp.Channel) *MyExchangeLogs {
     return &MyExchangeLogs{ch: ch}
 }
 
-func (ch *MyExchangeLogs) Save(order *domain.Order) error {
+func (ch *MyExchangeLogs) Save(order *domain.Reservation) error {
     body, err := json.Marshal(order)
     if err != nil {
         return fmt.Errorf("error al serializar el pedido: %v", err)

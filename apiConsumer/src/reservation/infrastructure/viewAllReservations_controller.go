@@ -15,11 +15,11 @@ func NewViewAllReservationController(useCase *application.ViewAllReservationUseC
 }
 
 func (controller *ViewAllReservationController) Execute(c *gin.Context) {
-	orders, err := controller.useCase.Run()
+	reservations, err := controller.useCase.Run()
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Error al obtener los datos"})
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"orders": orders})
+	c.JSON(http.StatusOK, gin.H{"reservations": reservations})
 }

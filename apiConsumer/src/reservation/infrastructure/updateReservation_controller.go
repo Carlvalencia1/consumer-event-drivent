@@ -25,15 +25,15 @@ func (controller *UpdateReservationController) Execute(c *gin.Context) {
 		return
 	}
 
-	var order domain.Order
-	if err := c.ShouldBindJSON(&order); err != nil {
+	var reservation domain.Reservation
+	if err := c.ShouldBindJSON(&reservation); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
 
-	controller.useCase.Run(int32(id), order)
+	controller.useCase.Run(int32(id), reservation)
 
 	c.JSON(http.StatusOK, gin.H{
-		"message": "Order actualizado exitosamente",
-		"data": order})
+		"message": "Reservación actualizada exitosamente",
+		"data": reservation})
 }

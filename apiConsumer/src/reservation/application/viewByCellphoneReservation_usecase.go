@@ -10,6 +10,6 @@ func NewViewByCellphoneReservationUseCase(mysqlRepository domain.IOrderMysq) *Vi
 	return &ViewByCellphoneReservationUseCase{mysqlRepository: mysqlRepository}
 }
 
-func (uc *ViewByCellphoneReservationUseCase) Run(cellphone int32) ([]domain.Order, error) {
+func (uc *ViewByCellphoneReservationUseCase) Run(cellphone int32) ([]domain.Reservation, error) {
 	return uc.mysqlRepository.GetByCellphone(cellphone)
 }

@@ -17,20 +17,20 @@ func NewCreateOrderController(useCase *application.CreateReservationUseCase) *Cr
 }
 
 func (controller *CreateReservationController) Execute(c *gin.Context) {
-	var order domain.Order
+	var reservation domain.Reservation
 
-	if err := c.ShouldBindJSON(&order); err != nil {
+	if err := c.ShouldBindJSON(&reservation); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
 
-	if err := controller.useCase.Run(&order); err != nil {
+	if err := controller.useCase.Run(&reservation); err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
 
 	c.JSON(http.StatusCreated, gin.H{
-		"status": "Order creado correctamente",
-		"data":   order,
+		"status": "Reservación creada correctamente",
+		"data":   reservation,
 	})
 }

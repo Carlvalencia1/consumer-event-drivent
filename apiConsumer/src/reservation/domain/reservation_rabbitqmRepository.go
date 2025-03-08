@@ -1,5 +1,5 @@
 package domain
 
 type IOrderRabbitqm interface {
-	Save(order *Order) error
+	Save(reservation *Reservation) error
 }
